@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600&display=swap');
+body{
+    background: #0d9488;
+    justify-content: center;
+    display: flex;
+}
+.card{
+    background-color: #fff;
+    font-family: 'Lexend Deca', sans-serif;
+    width: 50vh;
+    min-height: 100px;
+    margin-top: 100px;
+    border-radius: 20px;
+    justify-content: center;
+    box-shadow: rgba(70, 70, 70, 0.52) 15px 9px 37px -6px;
+}
+.header{
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    text-shadow: 5px 5px rgba(179, 179, 179, 0.4);
+}
+#text{
+    display: flex;
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    height: 100px;
+    border: 1px solid rgba(179, 179, 179, 0.8);
+    background-color: #fff;
+    border-radius: 10px;
+    outline: none;
+}
+#text::after{
+    border: 0px;
+}
+.boxes{
+    display: flex;
+    justify-content: space-between;
+}
+.box{
+    width: 45%;
+}
+.select-menu{
+    margin-top: 10px; 
+}
+#select{
+    width:90%;
+    display: flex;
+    height: 35px;
+    border: 1px solid rgba(179, 179, 179, 0.8);
+    font-weight: 500;
+    font-size: medium;
+    align-items: center;
+}
+#filename{
+    display: inline-flex;
+    justify-content: center;
+    margin: 15px;
+    margin-top: 10px;
+    height: 30px;
+    width: 90%;
+    border: 1px solid rgba(179, 179, 179, 0.8);
+    font-size: medium;
+}
+#filename,#select{
+    display: inline-flex;
+}
+#filename:focus,#select:focus{
+    outline:1px;
+}
+label{
+    margin: 15px;
+    display: inline;
+    font-weight: 600;
+    font-size: large;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    width: 90%;
+    background-color: #0d9488;
+    border-radius: 10px;
+    border: 0px;
+    height: 50px;
+    font-size: x-large;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 5px 5px rgba(179, 179, 179, 0.4);
+    margin-bottom: 20px;
+}
+.option{
+    overflow: hidden; 
+}
