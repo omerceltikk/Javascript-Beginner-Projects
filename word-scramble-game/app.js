@@ -5,7 +5,7 @@ let input = document.querySelector("#input")
 let refreshButton = document.querySelector(".refresh")
 let checkButton = document.querySelector(".check")
 
-
+// kelimelerdeki harflerin yerini değiştirmeyi sağlayan fonksiyon eksik!!!!!
 function getWord()
 {
 // for(let i = wordGuess.innerText.length-1;i>0;i--){
