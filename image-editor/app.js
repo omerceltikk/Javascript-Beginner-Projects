@@ -1,3 +1,5 @@
+let wrapper= document.querySelector(".wrapper")
+let containerArea = document.querySelector(".container") 
 let filterBtn = document.querySelector(".options")
 let inputTitle = document.querySelector(".filter-info .title")
 let inputValue = document.querySelector(".filter-info .value")
@@ -9,6 +11,7 @@ let choseImg = document.querySelector(".choose-image")
 let fileInput = document.querySelector(".file-input")
 let saveBtn = document.querySelector(".save-btn")
 
+let rotate = 0, flipHorizontal = 1, flipVertical = 1;
 
 let changeImage = function (){
     let file= fileInput.files[0];
@@ -52,17 +55,27 @@ optRotate.forEach(element => {
     element.addEventListener("click", (element)=>{
         if (element.target.classList.value || element.target.firstChild.classList.value == "fa-solid fa-rotate-right") {
             prevImage.style.transform += "rotate(90deg)"
+            prevImage.parentElement.classList.toggle("after")
+            containerArea.classList.toggle("rotated")
+            wrapper.classList.toggle("rotated")
+            rotate += 90;
         }
         if (element.target.classList.value || element.target.firstChild.classList.value == "fa-solid fa-rotate-left") {
             prevImage.style.transform += "rotate(-90deg)"
+            prevImage.parentElement.classList.toggle("after")
+            containerArea.classList.toggle("rotated")
+            rotate += -90;
         }
         if (element.target.classList.value || element.target.firstChild.classList.value == "bx bx-reflect-vertical") {
             prevImage.style.transform += "scaleX(-1)"
+            flipHorizontal = flipHorizontal === 1 ? -1 : 1;
+
         }
         if (element.target.classList.value || element.target.firstChild.classList.value == "bx bx-reflect-horizontal") {
             prevImage.style.transform += "scaleY(-1)"
+            flipVertical = flipVertical === 1 ? -1 : 1;
         }
-        
+
     })
     
 });
@@ -101,11 +114,6 @@ let grayImage = function(){
     }
 }
 
-let setImgScale = function(){
-    if(prevImage.style.transform =="-1"){
-        ctx.scale(-1,1)
-    }
-}
 let saveImage = () => {
     canvas.width=prevImage.naturalWidth;
     canvas.height=prevImage.naturalHeight;
@@ -114,10 +122,11 @@ let saveImage = () => {
     invertImage();
     grayImage();
     ctx.translate(canvas.width/2,canvas.height/2)
-    setImgScale();
-    ctx.drawImage(prevImage, -canvas.width/2,-canvas.height/2, canvas.width, canvas.height);
-    document.body.appendChild(canvas);
-    
+    if(rotate !== 0){
+        ctx.rotate(rotate * Math.PI / 180)
+    }
+    ctx.scale(flipHorizontal,flipVertical)
+    ctx.drawImage(prevImage, -canvas.width/2, -canvas.height/2, canvas.width, canvas.height);
     let link = document.createElement("a");
     link.download = "image.jpg";
     link.href=canvas.toDataURL()
