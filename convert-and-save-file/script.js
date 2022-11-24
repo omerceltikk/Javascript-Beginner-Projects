@@ -18,6 +18,7 @@ console.log(text.value)
 
 // Blob nesnelerini kabul eden API'ler, Dosya belgelerinde de listelenir.
 
+
 saveBtn.addEventListener("click",()=> {
     let blob = new Blob([text.value], {type: select.value});
     //URL.createObjectURL statik yöntemi, parametrede verilen nesneyi temsil eden bir URL içeren bir dize oluşturur.
@@ -29,3 +30,6 @@ saveBtn.addEventListener("click",()=> {
     link.href= fileURL;//indirme linki oluşturma href değeri olarak linki yazdırma
     link.click(); //download linki etkinliği
 } )
+
+
+// **TEKRAR**Blob un tanımlayacağı dosya formatını html içerisinde option value olarak atadık. ardından textarea dan value yi çektik ve option ile bu valueyi type olarak işledik. ve bunları bir evente atadık. belirtildiği gibi reateOBjectURL ile download bağlantısını hazırladık ardından a ve href tanımları üzeründen dosya ismi ve linki tanımladık

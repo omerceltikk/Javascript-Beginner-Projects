@@ -23,3 +23,5 @@ let msec = document.querySelector(".msec")
 }
 }
 setInterval(timer,10)
+
+//**TEKRAR** timer fonksiyonu altında bir enddate tanımı verdik. bu enddate ten kendi zaman aralığımızı çıkardık ve ger sayımı oluşturduk. Ardından gun ay yıl vb hesaplaması ile bunu html e yazdırdık.

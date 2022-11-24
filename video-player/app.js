@@ -28,6 +28,8 @@ container.addEventListener("mousemove", () => {
     clearTimeout(hideControls)
     hideControls();
 })
+//**TEKRAR**5 saniye ile control paneli kapatıp açma
+
 mainVideo.addEventListener("click",()=> {
     if(mainVideo.paused){
         mainVideo.play()
@@ -38,6 +40,7 @@ mainVideo.addEventListener("click",()=> {
     clearTimeout(hideControls)
     hideControls();
 })
+//**TEKRAR**video ekranına basınca start pause
 
 //make video time and progress bar configuration
 mainVideo.addEventListener("timeupdate",e =>{
@@ -47,6 +50,7 @@ mainVideo.addEventListener("timeupdate",e =>{
     currentVidTime.innerHTML= formatTime(currentTime);
     videoDuration.innerText=formatTime(mainVideo.duration)
 });
+//**TEKRAR**süre geçtikçe progress bar ve zamanlamanın uyumu sağlandı 
 
 // setting time function
 let formatTime=(time) => {
@@ -71,6 +75,7 @@ let draggableProgress = (e) => {
     mainVideo.currentTime = (e.offsetX / timelineWidth)* mainVideo.duration;
     currentVidTime.innerHTML= formatTime(mainVideo.currentTime);
 }
+//**TEKRAR** offsetX ile tıklanınlan yerin pixeli ile progress barın uyumu sağlanmıştır.
 //progress bar üzerinde tıklandığında videonun tıklanılan süre kısmına gitme
 videoTimeline.addEventListener("click", e =>{
     let timelineWidth = e.target.clientWidth;
@@ -80,6 +85,8 @@ videoTimeline.addEventListener("click", e =>{
 videoTimeline.addEventListener("mousedown", e=>{
   videoTimeline.addEventListener("mousemove", draggableProgress)
 });
+
+//**TEKRAR** mousemove ve mouse down ile sürükleme eventi sağlandı
 //progress bar üzerinde sürüklemeyi durdurma
 container.addEventListener("mouseup", e=>{
     videoTimeline.removeEventListener("mousemove", draggableProgress)
@@ -93,7 +100,7 @@ videoTimeline.addEventListener("mousemove", (e)=> {
     let percent = (e.offsetX / timeLineWidth) * mainVideo.duration
     progressTime.innerText = formatTime(percent)
 });
-//
+//**TEKRAR** sürenin mouse ile hareket edebilmesi için offsetX kullanıldı
 
 //10 sec skip back
 skipBack.addEventListener("click", ()=>{

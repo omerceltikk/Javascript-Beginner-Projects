@@ -13,7 +13,7 @@ let setKey = (e) => {
         
     }
 }
-
+//**TEKRAR**keycode 13 enter a eşit
 
 let getResult = (cityName) => {
     let city = `${locationUrl}direct?q=${cityName}&appid=${apiKey}`
@@ -32,6 +32,7 @@ let getResult = (cityName) => {
         })
         .then(finalResult)
     })
+    //**TEKRAR**API üzerinden girilen şehrin anlık havadurumu etkinliği kontrol edilip yazdırılıyor. 
 }
 let finalResult = (result) => {
     console.log(result)
@@ -65,6 +66,7 @@ return random;
 },2000
 )
 colorTheme();
+//color theme ile farklı radial gradientler denenmiştir. her 2 saniyede bir backgorund güncelleniyor.
 
 // let cssUrl = document.styleSheets[0]
 

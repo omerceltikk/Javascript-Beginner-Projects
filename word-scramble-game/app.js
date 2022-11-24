@@ -18,11 +18,12 @@ let fetchWord = fetch("https://random-word-api.herokuapp.com/word?length=8")
 console.log(fetchWord)
 }
 getWord();
-
+//**TEKRAR**kelimeyi API üzerinden çekildi 
 timeleft = 30;
 function countdown(){
     timeleft--;
     time.innerHTML = `Time Left: ${String(timeleft)}s`
+    //**TEKRAR**number atadığımız için kalan zamanı stringfy yaparak gösteriyoruz
     if(timeleft>0){
         setTimeout(countdown,1000)
     }
@@ -45,6 +46,7 @@ let checkBtn = checkButton.addEventListener("click",function(){
     if (input.value !== guessed) {
         alert("Your Answer Is Not Correct!")   
     }
+    //**TEKRAR**API üzerinden çekilen ve inputa girilen değerleri kontrol eden yapı
     function restart(){
     timeleft=31;
     }
@@ -56,6 +58,7 @@ function wordFetchFunc(){
     .then(data => console.log(data))
 }
 wordFetchFunc();
+//**TEKRAR**API üzerinden kelime ile ilgili ipucu yazan fonksiyon
 });
 
 let refreshBtn = refreshButton.addEventListener("click", ()=> {
